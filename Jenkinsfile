@@ -1,12 +1,11 @@
 pipeline {
- agent any
- stages {
- stage ('Checkout') {
- steps {
- git branch:'master', url: 'https://github.com/SadiqIsnin/Vulnerable-WebApplication.git'
- }
- }
- 
+agent any
+stages {
+stage ('Checkout') {
+steps {
+git branch:'master', url: 'https://github.com/SadiqIsnin/Vulnerable-Web-Application.git'
+}
+}
 stage('Code Quality Check via SonarQube') {
 steps {
 script {
@@ -24,3 +23,4 @@ recordIssues enabledForFailure: true, tool: sonarQube()
 }
 }
 }
+
